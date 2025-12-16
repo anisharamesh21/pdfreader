@@ -7,7 +7,7 @@ def text_extractor(pdf_input):
         pages = text_output.pages
         for i in range(len(pages)):
             page_obj = text_output.pages[i]
-            page_text = page_obj.extract_text()
+            page_text = page_obj.extract_text(layout=True)
             all_text+=page_text
         
     # with open("all_text.txt", 'w') as file:
