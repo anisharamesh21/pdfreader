@@ -18,11 +18,10 @@ def text_extractor(pdf_input):
     return new_text
 
 def text_to_audio(text_input):
+    ## Need to break it down into chunks // currently only works for ~1.5 pages
     aiff = Path("output.aiff")
     mp3 = Path("output.mp3")
     subprocess.run(["say", "-o", str(aiff), text_input], check=True)
-
-    # Step 2: Convert AIFF to MP3 using ffmpeg
     subprocess.run(["ffmpeg", "-y", "-i", str(aiff), str(mp3)], check=True)
 
 
